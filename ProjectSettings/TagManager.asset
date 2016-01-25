@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SpinningCircle
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1862621943
+    locked: 0
+  - name: 1st Circle
+    uniqueID: 1207431477
+    locked: 0
+  - name: 2nd Circle
+    uniqueID: 441992325
+    locked: 0
+  - name: 3rd Circle
+    uniqueID: 1278728235
     locked: 0
