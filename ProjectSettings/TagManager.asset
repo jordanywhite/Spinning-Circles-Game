@@ -54,3 +54,6 @@ TagManager:
   - name: 3rd Circle
     uniqueID: 1278728235
     locked: 0
+  - name: Player
+    uniqueID: 2465122695
+    locked: 0
