@@ -4,11 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - SpinningCircleClockwise
   - Pit
   - Fruit
   - Spike
   - SpinningCircleCounterClockwise
+=======
+  - SpinningCircle
+  - Circle 1
+  - Circle 2
+>>>>>>> origin/master
   layers:
   - Default
   - TransparentFX
