@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - SpinningCircle
+  - SpinningCircleClockwise
+  - Pit
+  - Fruit
+  - Spike
+  - SpinningCircleCounterClockwise
   layers:
   - Default
   - TransparentFX
@@ -45,14 +49,11 @@ TagManager:
   - name: Background
     uniqueID: 1862621943
     locked: 0
-  - name: 1st Circle
+  - name: Circle
     uniqueID: 1207431477
     locked: 0
-  - name: 2nd Circle
-    uniqueID: 441992325
-    locked: 0
-  - name: 3rd Circle
-    uniqueID: 1278728235
+  - name: Obastacle
+    uniqueID: 4200592869
     locked: 0
   - name: Player
     uniqueID: 2465122695
