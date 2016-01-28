@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SpinCenterCircle : MonoBehaviour
 {
+	float speed = .5f;
 
     // Use this for initialization
     void Start()
@@ -20,7 +21,7 @@ public class SpinCenterCircle : MonoBehaviour
 
     void RotateLeft()
     {
-        transform.Rotate(Vector3.forward * 7);
+        transform.Rotate(Vector3.forward * speed);
     }
 
 

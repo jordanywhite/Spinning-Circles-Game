@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class PlayerController : MonoBehaviour
 {
 
 
-	private float moveSpeed = 3f;
+	float moveSpeed =3f;
+	GameObject object1;
+	GameObject object2;
+
 
 	void Start()
 	{
+		object1 = GameObject.Find("Player");
+		object2 = GameObject.Find("Circle1");
+			
 		
 	}
 
 	void Update()
 	{
-
- 
+		
 
 		if((Input.GetKey(KeyCode.RightArrow))||(Input.GetKey(KeyCode.D)))
 		{
@@ -35,19 +41,17 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-//	private void OnTriggerEnter2D (Collider2D other)
-//	{
-//		//Check if the tag of the trigger collided with is Exit.
-//		if(other.tag == "Circle 1")
-//		{
-//			transform.Rotate(Vector3.forward * 7);
-//		}
-//
-//		if(other.tag == "Circle 2")
-//		{
-//			transform.Rotate (Vector3.forward * -2);
-//		}
-//	}
+	private void OnTriggerEnter2D (Collider2D other)
+	{
+		
+		if(other.tag == "Circle 1")
+		{
+
+			object1.transform.parent = object2.transform;
+		
+	    }
+
+}
 
 
 
