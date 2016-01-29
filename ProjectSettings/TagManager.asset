@@ -3,18 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - SpinningCircleClockwise
-  - Pit
-  - Fruit
-  - Spike
-  - SpinningCircleCounterClockwise
-=======
-  - SpinningCircle
-  - Circle 1
-  - Circle 2
->>>>>>> origin/master
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -51,16 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 1862621943
-    locked: 0
-  - name: Circle
-    uniqueID: 1207431477
-    locked: 0
-  - name: Obastacle
-    uniqueID: 4200592869
-    locked: 0
-  - name: Player
-    uniqueID: 2465122695
     locked: 0
