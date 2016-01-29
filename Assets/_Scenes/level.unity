@@ -126,7 +126,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187336, guid: 94540c615923fb44e929d9042fb7679f, type: 2}
       propertyPath: m_TagString
-      value: Circle 2
+      value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 21273624, guid: 94540c615923fb44e929d9042fb7679f, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1427575277
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94540c615923fb44e929d9042fb7679f, type: 2}
@@ -185,6 +189,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 21236558, guid: 856cb5183acce044b84a752aa6bfa90f, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 640308011
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 856cb5183acce044b84a752aa6bfa90f, type: 2}
   m_IsPrefabParent: 0
@@ -193,15 +201,15 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1125829957}
     m_Modifications:
     - target: {fileID: 474038, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.33
+      value: 0.0665
       objectReference: {fileID: 0}
     - target: {fileID: 474038, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.22
+      value: 0.111
       objectReference: {fileID: 0}
     - target: {fileID: 474038, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
       propertyPath: m_LocalPosition.z
@@ -225,11 +233,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 474038, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 110986, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
+    - target: {fileID: 21238754, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1040224465
+      objectReference: {fileID: 0}
+    - target: {fileID: 474038, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 474038, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46b6a5a64325249448a3df62e97607db, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1125829957 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 479128, guid: fe72f24dc975135439fb27dbf3f49b9e, type: 2}
+  m_PrefabInternal: {fileID: 2033970127}
 --- !u!1 &1499568185
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +397,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21211362, guid: 0d3983c6e69a5e74eb709b39ad5ed37f, type: 2}
       propertyPath: m_SortingLayerID
-      value: -94374427
+      value: 1040224465
+      objectReference: {fileID: 0}
+    - target: {fileID: 163158, guid: 0d3983c6e69a5e74eb709b39ad5ed37f, type: 2}
+      propertyPath: m_TagString
+      value: Pitfall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3983c6e69a5e74eb709b39ad5ed37f, type: 2}
@@ -412,6 +444,14 @@ Prefab:
     - target: {fileID: 449574, guid: 5710b3c21af27c644b4b052351257462, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 21294542, guid: 5710b3c21af27c644b4b052351257462, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1932175397
+      objectReference: {fileID: 0}
+    - target: {fileID: 21294542, guid: 5710b3c21af27c644b4b052351257462, type: 2}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5710b3c21af27c644b4b052351257462, type: 2}
@@ -457,7 +497,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 111958, guid: fe72f24dc975135439fb27dbf3f49b9e, type: 2}
       propertyPath: m_TagString
-      value: Circle 1
+      value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207326, guid: fe72f24dc975135439fb27dbf3f49b9e, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1427575277
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207326, guid: fe72f24dc975135439fb27dbf3f49b9e, type: 2}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe72f24dc975135439fb27dbf3f49b9e, type: 2}

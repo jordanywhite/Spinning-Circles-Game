@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Spikes
+  - Pitfall
+  - Player
+  - Circle
+  - Fruit
   layers:
   - Default
   - TransparentFX
@@ -43,6 +48,15 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 640308011
+    locked: 0
+  - name: Circles
+    uniqueID: 2867392019
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1040224465
+    locked: 0
+  - name: Items
+    uniqueID: 1932175397
     locked: 0
   - name: Player
     uniqueID: 3733509661
