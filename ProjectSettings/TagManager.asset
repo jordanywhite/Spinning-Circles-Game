@@ -7,8 +7,10 @@ TagManager:
   - Spikes
   - Pitfall
   - Player
-  - Circle
+  - Circle 1
   - Fruit
+  - Circle 2
+  - Circle 3
   layers:
   - Default
   - TransparentFX
