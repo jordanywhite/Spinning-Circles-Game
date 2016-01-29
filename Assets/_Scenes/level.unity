@@ -532,7 +532,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 443832, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 443832, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalPosition.y
@@ -565,6 +565,31 @@ Prefab:
     - target: {fileID: 6178966, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140628, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21225024, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 81f298dc2a7a3b04dbec407c30bf8494,
+        type: 3}
+    - target: {fileID: 443832, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 443832, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 443832, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21225024, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -561457635
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
