@@ -13,6 +13,8 @@ TagManager:
   - Circle 3
   - PushPad
   - CenterCircle
+  - Circle 4
+  - Circle 5
   layers:
   - Default
   - TransparentFX
