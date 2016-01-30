@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
 		if((Input.GetKey(KeyCode.RightArrow))||(Input.GetKey(KeyCode.D)))
 		{
 			transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f,0.0f);
+            player.transform.
 		}
 		if((Input.GetKey(KeyCode.LeftArrow))||(Input.GetKey(KeyCode.A)))
 		{
@@ -57,6 +58,10 @@ public class PlayerController : MonoBehaviour
             print("in: " + other.tag);
             onCircle.Push(other.gameObject);
             player.transform.parent = other.gameObject.transform;
+        }
+        else if(other.tag == "Pitfall")
+        {
+
         }
 
     }
