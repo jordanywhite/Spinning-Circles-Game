@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 		circleOne = GameObject.Find("Circle1");
         circleTwo = GameObject.Find("Circle2");
         circleThree = GameObject.Find("Circle3");
-        centerCircle = GameObject.Find("CenterCircle");
+        //centerCircle = GameObject.Find("CenterCircle");
 
         onCircle = new Stack<GameObject>();
         onCircle.Push(null);
@@ -51,8 +51,9 @@ public class PlayerController : MonoBehaviour
 
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-        if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
-        {
+        //if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
+        if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
+            {
             print("in: " + other.tag);
             onCircle.Push(other.gameObject);
             player.transform.parent = other.gameObject.transform;
@@ -62,7 +63,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
+        //if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
+        if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
         {
             print("out: " + other.tag);
             GameObject circle = onCircle.Pop();
