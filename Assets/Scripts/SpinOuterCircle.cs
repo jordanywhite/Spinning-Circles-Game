@@ -16,7 +16,7 @@ public class SpinOuterCircle : MonoBehaviour {
 
 
 	void RotateLeft () {
-		transform.Rotate (Vector3.forward * -2);
+		transform.Rotate (Vector3.forward * -1);
 	}
 
 

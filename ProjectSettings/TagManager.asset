@@ -11,6 +11,8 @@ TagManager:
   - Fruit
   - Circle 2
   - Circle 3
+  - PushPad
+  - CenterCircle
   layers:
   - Default
   - TransparentFX

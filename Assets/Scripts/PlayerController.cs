@@ -1,23 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
-
+    Stack<GameObject> onCircle;
 
 	float moveSpeed =3f;
-	GameObject object1;
-	GameObject object2;
+	GameObject player;
+	GameObject circleOne;
+    GameObject circleTwo;
+    GameObject circleThree;
+    GameObject centerCircle;
 
 
-	void Start()
+
+    void Start()
 	{
-		object1 = GameObject.Find("Player");
-		object2 = GameObject.Find("Circle1");
-			
-		
-	}
+		player = GameObject.Find("Player");
+		circleOne = GameObject.Find("Circle1");
+        circleTwo = GameObject.Find("Circle2");
+        circleThree = GameObject.Find("Circle3");
+        centerCircle = GameObject.Find("CenterCircle");
+
+        onCircle = new Stack<GameObject>();
+        onCircle.Push(null);
+    }
 
 	void Update()
 	{
@@ -43,15 +51,33 @@ public class PlayerController : MonoBehaviour
 
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		
-		if(other.tag == "Circle 1")
-		{
+        if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
+        {
+            print("in: " + other.tag);
+            onCircle.Push(other.gameObject);
+            player.transform.parent = other.gameObject.transform;
+        }
 
-			object1.transform.parent = object2.transform;
-		
-	    }
+    }
 
-}
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
+        {
+            print("out: " + other.tag);
+            GameObject circle = onCircle.Pop();
+
+            if (onCircle.Peek() != null)
+            {
+                player.transform.parent = onCircle.Peek().transform;
+            }
+            else
+            {
+                player.transform.parent = null;
+            }
+        }
+    }
+
 
 
 
