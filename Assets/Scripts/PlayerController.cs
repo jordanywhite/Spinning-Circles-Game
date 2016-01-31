@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
 	Animator animator;
     Quaternion rotation;
 
+    GameObject[] spawnPoints;
+
+    GameObject currentSpawn;
+
+    bool canMove = true;
+
 
     void Start()
 	{
@@ -28,6 +34,12 @@ public class PlayerController : MonoBehaviour
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
 		Fire = GameObject.Find("Fire");
+
+        GameObject spawnOne = GameObject.Find("Spawn1");
+
+        currentSpawn = spawnOne;
+
+        spawnPoints = new GameObject[] {spawnOne};
 
         rotation = player.transform.rotation;
 
@@ -43,9 +55,13 @@ public class PlayerController : MonoBehaviour
         // Lock rotation
         player.transform.rotation = rotation;
 
+        if(!canMove)
+        {
+            return;
+        }
+
         if ((Input.GetKey(KeyCode.RightArrow))||(Input.GetKey(KeyCode.D)))
 		{
-
 			transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f,0.0f);
             isMoving = true;
             
@@ -86,6 +102,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private IEnumerator catDied()
+    {
+        animator.SetTrigger("CatDead");
+        animator.ResetTrigger("CatIdle");
+        animator.ResetTrigger("CatWalk");
+        canMove = false;
+
+        player.transform.parent = null;
+        yield return new WaitForSeconds(1);
+
+        respawn();
+    }
+
+    private void respawn()
+    {
+        canMove = true;
+        animator.ResetTrigger("CatWalk");
+        animator.ResetTrigger("CatDead");
+        player.transform.position = currentSpawn.transform.position;
+    }
+
 	private void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag || other.tag == circleFour.tag || other.tag == circleFive.tag) {
@@ -93,7 +130,7 @@ public class PlayerController : MonoBehaviour
 			onCircle.Push (other.gameObject);
 			player.transform.parent = other.gameObject.transform;
 		} else if (other.tag == Fire.tag) {
-			animator.SetTrigger ("CatDead");
+            StartCoroutine((catDied()));
 		}
 
        
