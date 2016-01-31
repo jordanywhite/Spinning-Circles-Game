@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
 	GameObject circleFour;
 	GameObject circleFive;
     GameObject centerCircle;
-
+	GameObject Fire;
+	Animator animator;
 
 
     void Start()
@@ -25,8 +26,9 @@ public class PlayerController : MonoBehaviour
         circleThree = GameObject.Find("Circle3");
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
+		Fire = GameObject.Find("Fire");
         //centerCircle = GameObject.Find("CenterCircle");
-
+		animator = GetComponent<Animator> ();
         onCircle = new Stack<GameObject>();
         onCircle.Push(null);
     }
@@ -37,32 +39,40 @@ public class PlayerController : MonoBehaviour
 
 		if((Input.GetKey(KeyCode.RightArrow))||(Input.GetKey(KeyCode.D)))
 		{
+
 			transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f,0.0f);
             
 		}
 		if((Input.GetKey(KeyCode.LeftArrow))||(Input.GetKey(KeyCode.A)))
 		{
+			
 			transform.position -= new Vector3(moveSpeed * Time.deltaTime, 0.0f, 0.0f);
 		}
 		if((Input.GetKey(KeyCode.UpArrow))||(Input.GetKey(KeyCode.W)))
 		{
+			
 			transform.position += new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
 		}
 		if((Input.GetKey(KeyCode.DownArrow))||(Input.GetKey(KeyCode.S)))
 		{
+			
 			transform.position -= new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
 		}
 	}
 
+
+
 	private void OnTriggerEnter2D (Collider2D other)
 	{
         //if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
-		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag|| other.tag == circleFour.tag|| other.tag == circleFive.tag)
-            {
-            print("in: " + other.tag);
-            onCircle.Push(other.gameObject);
-            player.transform.parent = other.gameObject.transform;
-        }
+		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag || other.tag == circleFour.tag || other.tag == circleFive.tag) {
+			print ("in: " + other.tag);
+			onCircle.Push (other.gameObject);
+			player.transform.parent = other.gameObject.transform;
+		} else if (other.tag == Fire.tag) {
+			animator.SetTrigger ("CatDead");
+		}
+
        
 
     }
