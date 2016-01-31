@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
 
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-        //if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
 		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag || other.tag == circleFour.tag || other.tag == circleFive.tag) {
 			print ("in: " + other.tag);
 			onCircle.Push (other.gameObject);
@@ -79,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        //if (other.tag == centerCircle.tag || other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag)
 		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag|| other.tag == circleFour.tag|| other.tag == circleFive.tag)
         {
             print("out: " + other.tag);
