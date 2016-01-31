@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     GameObject centerCircle;
 	GameObject Fire;
 	Animator animator;
+    Quaternion rotation;
 
 
     void Start()
@@ -27,7 +28,9 @@ public class PlayerController : MonoBehaviour
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
 		Fire = GameObject.Find("Fire");
-        //centerCircle = GameObject.Find("CenterCircle");
+
+        rotation = player.transform.rotation;
+
 		animator = GetComponent<Animator> ();
         onCircle = new Stack<GameObject>();
         onCircle.Push(null);
@@ -35,32 +38,53 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-		
+        bool isMoving = false;
 
-		if((Input.GetKey(KeyCode.RightArrow))||(Input.GetKey(KeyCode.D)))
+        // Lock rotation
+        player.transform.rotation = rotation;
+
+        if ((Input.GetKey(KeyCode.RightArrow))||(Input.GetKey(KeyCode.D)))
 		{
 
 			transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f,0.0f);
+            isMoving = true;
             
 		}
 		if((Input.GetKey(KeyCode.LeftArrow))||(Input.GetKey(KeyCode.A)))
 		{
 			
 			transform.position -= new Vector3(moveSpeed * Time.deltaTime, 0.0f, 0.0f);
-		}
-		if((Input.GetKey(KeyCode.UpArrow))||(Input.GetKey(KeyCode.W)))
+            isMoving = true;
+        }
+	    if((Input.GetKey(KeyCode.UpArrow))||(Input.GetKey(KeyCode.W)))
 		{
 			
 			transform.position += new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
-		}
+            isMoving = true;
+        }
 		if((Input.GetKey(KeyCode.DownArrow))||(Input.GetKey(KeyCode.S)))
 		{
 			
 			transform.position -= new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
-		}
-	}
+            isMoving = true;
+        }
 
+        setMoving(isMoving);
+    }
 
+    private void setMoving(bool isMoving)
+    {
+        if(isMoving)
+        {
+            animator.ResetTrigger("CatIdle");
+            animator.SetTrigger("CatWalk");
+        }
+        else
+        {
+            animator.SetTrigger("CatIdle");
+            animator.ResetTrigger("CatWalk");
+        }
+    }
 
 	private void OnTriggerEnter2D (Collider2D other)
 	{
