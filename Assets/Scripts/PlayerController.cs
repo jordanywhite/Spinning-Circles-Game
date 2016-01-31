@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
         circleThree = GameObject.Find("Circle3");
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
-		Fire = GameObject.Find("Fire");
 
         moveSpeed = 3F;
 
