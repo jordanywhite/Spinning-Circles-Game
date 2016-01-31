@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     Stack<GameObject> onCircle;
 
-	float moveSpeed =3f;
+	float moveSpeed;
 	GameObject player;
 	GameObject circleOne;
     GameObject circleTwo;
@@ -24,6 +24,13 @@ public class PlayerController : MonoBehaviour
 
     bool canMove = true;
 
+    //tags
+    string fireTag = "Fire";
+    string webTag = "Web";
+    string pitfallTag = "Pitfall";
+    string spikesTag = "Spikes";
+
+
 
     void Start()
 	{
@@ -34,6 +41,8 @@ public class PlayerController : MonoBehaviour
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
 		Fire = GameObject.Find("Fire");
+
+        moveSpeed = 3F;
 
         GameObject spawnOne = GameObject.Find("Spawn1");
 
@@ -120,18 +129,28 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         animator.ResetTrigger("CatWalk");
         animator.ResetTrigger("CatDead");
+
         player.transform.position = currentSpawn.transform.position;
+        onCircle.Clear();
+        onCircle.Push(null);
     }
 
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag || other.tag == circleFour.tag || other.tag == circleFive.tag) {
+		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag || other.tag == circleFour.tag || other.tag == circleFive.tag)
+        {
 			print ("in: " + other.tag);
 			onCircle.Push (other.gameObject);
 			player.transform.parent = other.gameObject.transform;
-		} else if (other.tag == Fire.tag) {
-            StartCoroutine((catDied()));
 		}
+        else if (other.tag == fireTag || other.tag == spikesTag)
+        {
+            StartCoroutine((catDied()));
+		} 
+        else if (other.tag == webTag)
+        {
+            moveSpeed = 1F;
+        }
 
        
 
@@ -152,6 +171,11 @@ public class PlayerController : MonoBehaviour
             {
                 player.transform.parent = null;
             }
+        }
+
+        else if (other.tag == webTag)
+        {
+            moveSpeed = 3F;
         }
     }
 
