@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: 904acfcfd03668147b95be2ca508ab80
+timeCreated: 1454243447
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: victory_fruit_0
+    21300002: victory_fruit_1
+    21300004: victory_fruit_2
+    21300006: victory_fruit_3
+    21300008: victory_fruit_4
+    21300010: victory_fruit_5
+    21300012: victory_fruit_6
+    21300014: victory_fruit_7
+    21300016: victory_fruit_8
+    21300018: victory_fruit_9
+    21300020: victory_fruit_10
+    21300022: victory_fruit_11
+    21300024: victory_fruit_12
+    21300026: victory_fruit_13
+    21300028: victory_fruit_14
+    21300030: victory_fruit_15
+    21300032: victory_fruit_16
+    21300034: victory_fruit_17
+    21300036: victory_fruit_18
+    21300038: victory_fruit_19
+    21300040: victory_fruit_20
+    21300042: victory_fruit_21
+    21300044: victory_fruit_22
+    21300046: victory_fruit_23
+    21300048: victory_fruit_24
+    21300050: victory_fruit_25
+    21300052: victory_fruit_26
+    21300054: victory_fruit_27
+    21300056: victory_fruit_28
+    21300058: victory_fruit_29
+    21300060: victory_fruit_30
+    21300062: victory_fruit_31
+    21300064: victory_fruit_32
+    21300066: victory_fruit_33
+    21300068: victory_fruit_34
+    21300070: victory_fruit_35
+    21300072: victory_fruit_36
+    21300074: victory_fruit_37
+    21300076: victory_fruit_38
+    21300078: victory_fruit_39
+    21300080: victory_fruit_40
+    21300082: victory_fruit_41
+    21300084: victory_fruit_42
+    21300086: victory_fruit_43
+    21300088: victory_fruit_44
+    21300090: victory_fruit_45
+    21300092: victory_fruit_46
+    21300094: victory_fruit_47
+    21300096: victory_fruit_48
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: victory_fruit_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 205
+        width: 41
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 24.5}
+        - {x: -20.5, y: 8.5}
+        - {x: -20.5, y: -24.5}
+        - {x: 4.5, y: -24.5}
+        - {x: 9.5, y: -22.5}
+        - {x: 20.5, y: -11.5}
+        - {x: 20.5, y: 22.5}
+        - {x: 10.5, y: 24.5}
+      - - {x: -12.5, y: 22.5}
+        - {x: -12.5, y: 24.5}
+        - {x: -17.5, y: 24.5}
+        - {x: -15.5, y: 21.5}
+    - name: victory_fruit_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 222
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 206
+        width: 55
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: 25}
+        - {x: -27.5, y: 18}
+        - {x: -27.5, y: -23}
+        - {x: -26.5, y: -25}
+        - {x: 20.5, y: -25}
+        - {x: 27.5, y: -23}
+        - {x: 27.5, y: 17}
+        - {x: 8.5, y: 25}
+      - - {x: 24.5, y: 13}
+        - {x: 26.5, y: 11}
+        - {x: 27.5, y: 11}
+        - {x: 27.5, y: 18}
+        - {x: 24.5, y: 17}
+      - - {x: -21.5, y: 23}
+        - {x: -21.5, y: 25}
+        - {x: -26.5, y: 25}
+        - {x: -24.5, y: 22}
+    - name: victory_fruit_3
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 225
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_4
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 207
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_5
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 200
+        width: 44
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 24}
+        - {x: -22, y: 21}
+        - {x: -22, y: -14}
+        - {x: -14, y: -24}
+        - {x: 18, y: -24}
+        - {x: 22, y: -16}
+        - {x: 22, y: 23}
+        - {x: 18, y: 24}
+    - name: victory_fruit_6
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 206
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_7
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 202
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17.5, y: 24}
+        - {x: -19.5, y: 24}
+        - {x: -24.5, y: 23}
+        - {x: -24.5, y: -22}
+        - {x: -16.5, y: -24}
+        - {x: 18.5, y: -24}
+        - {x: 23.5, y: -17}
+        - {x: 24.5, y: -13}
+        - {x: 24.5, y: 16}
+    - name: victory_fruit_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 131
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 25}
+        - {x: -25, y: 19}
+        - {x: -25, y: -18}
+        - {x: -21, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: 22}
+        - {x: 20, y: 25}
+    - name: victory_fruit_9
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 162
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 24}
+        - {x: -5, y: 24}
+        - {x: -28, y: -1}
+        - {x: -28, y: -18}
+        - {x: -21, y: -24}
+        - {x: 18, y: -24}
+        - {x: 28, y: -16}
+        - {x: 28, y: -5}
+        - {x: 16, y: 13}
+    - name: victory_fruit_10
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 150
+        width: 45
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 25}
+        - {x: -16.5, y: 18}
+        - {x: -22.5, y: 11}
+        - {x: -22.5, y: -14}
+        - {x: -12.5, y: -25}
+        - {x: 21.5, y: -25}
+        - {x: 22.5, y: -21}
+        - {x: 22.5, y: 20}
+        - {x: 12.5, y: 25}
+      - - {x: 14.5, y: 21}
+        - {x: 17.5, y: 22}
+        - {x: 17.5, y: 25}
+        - {x: 13.5, y: 25}
+        - {x: 12.5, y: 24}
+      - - {x: -9.5, y: 25}
+        - {x: -8.5, y: 22}
+        - {x: -5.5, y: 22}
+        - {x: -3.5, y: 24}
+        - {x: -3.5, y: 25}
+    - name: victory_fruit_11
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 169
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 24}
+        - {x: -24.5, y: -3}
+        - {x: -24.5, y: -24}
+        - {x: 11.5, y: -24}
+        - {x: 24.5, y: -10}
+        - {x: 24.5, y: 21}
+        - {x: 21.5, y: 24}
+    - name: victory_fruit_12
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 152
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 22.5}
+        - {x: -21.5, y: 10.5}
+        - {x: -21.5, y: -20.5}
+        - {x: -14.5, y: -22.5}
+        - {x: 21.5, y: -22.5}
+        - {x: 21.5, y: 10.5}
+        - {x: 16.5, y: 22.5}
+    - name: victory_fruit_13
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 123
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_14
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 91
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 24.5}
+        - {x: -25, y: 20.5}
+        - {x: -25, y: -13.5}
+        - {x: -22, y: -18.5}
+        - {x: -16, y: -25.5}
+        - {x: 12, y: -25.5}
+        - {x: 25, y: -13.5}
+        - {x: 25, y: 13.5}
+        - {x: 15, y: 24.5}
+      - - {x: -25, y: 25.5}
+        - {x: -25, y: 22.5}
+        - {x: -23, y: 22.5}
+        - {x: -21, y: 24.5}
+        - {x: -21, y: 25.5}
+    - name: victory_fruit_15
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 140
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 52
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 30.5}
+        - {x: -26, y: -30.5}
+        - {x: 4, y: -30.5}
+        - {x: 26, y: -21.5}
+        - {x: 26, y: 30.5}
+    - name: victory_fruit_17
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 118
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_18
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 103
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_19
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 114
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_20
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 100
+        width: 71
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_21
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 115
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_22
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 115
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_23
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 53
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 23.5}
+        - {x: -18.5, y: -0.5}
+        - {x: -18.5, y: -23.5}
+        - {x: 16.5, y: -23.5}
+        - {x: 18.5, y: -22.5}
+        - {x: 18.5, y: 4.5}
+        - {x: 4.5, y: 23.5}
+    - name: victory_fruit_24
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 53
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_25
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 62
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_26
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 90
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_27
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 91
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 4
+        width: 190
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 65, y: -10}
+        - {x: 63, y: -8}
+        - {x: 59, y: -9}
+        - {x: 46, y: -17}
+        - {x: 36, y: -8}
+        - {x: 30, y: -8}
+        - {x: 30, y: 0}
+        - {x: 30, y: -2}
+        - {x: 36, y: -7}
+        - {x: 43, y: -11}
+        - {x: 54, y: -11}
+        - {x: 68, y: -5}
+        - {x: 71, y: -11}
+        - {x: 75, y: -14}
+        - {x: 95, y: -12}
+        - {x: 95, y: 40}
+        - {x: -95, y: 40}
+        - {x: -95, y: -40}
+        - {x: 79, y: -40}
+        - {x: 95, y: -34}
+        - {x: 95, y: -16}
+        - {x: 65, y: -16}
+      - - {x: -43, y: 35}
+        - {x: -40, y: 36}
+        - {x: -40, y: 40}
+        - {x: -45, y: 40}
+        - {x: -45, y: 37}
+    - name: victory_fruit_29
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 53
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: victory_fruit_30
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 8
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 25}
+        - {x: -19.5, y: -25}
+        - {x: 10.5, y: -25}
+        - {x: 19.5, y: -21}
+        - {x: 19.5, y: 23}
+        - {x: 16.5, y: 25}
+    - name: victory_fruit_31
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 4
+        width: 106
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: -42}
+        - {x: 53, y: -42}
+        - {x: 53, y: 42}
+        - {x: -37, y: 42}
+        - {x: -51, y: 21}
+        - {x: -53, y: 6}
+        - {x: -53, y: -42}
+        - {x: -10, y: -42}
+        - {x: -7, y: -32}
+        - {x: -6, y: -22}
+        - {x: 7, y: -38}
+      - - {x: -53, y: 42}
+        - {x: -53, y: 12}
+        - {x: -47, y: 12}
+        - {x: -44, y: 19}
+        - {x: -44, y: 41}
+        - {x: -46, y: 42}
+    - name: victory_fruit_32
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 4
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 23}
+        - {x: 15, y: 24}
+        - {x: -20, y: 24}
+        - {x: -25, y: 14}
+        - {x: -25, y: -19}
+        - {x: -20, y: -24}
+        - {x: 16, y: -24}
+        - {x: 25, y: -18}
+        - {x: 25, y: 14}
+    - name: victory_fruit_33
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 3
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

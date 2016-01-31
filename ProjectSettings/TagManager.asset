@@ -17,6 +17,7 @@ TagManager:
   - Circle 5
   - Fire
   - Spawn
+  - Web
   layers:
   - Default
   - TransparentFX

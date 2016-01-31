@@ -117,7 +117,6 @@ public class PlayerController : MonoBehaviour
         animator.ResetTrigger("CatWalk");
         canMove = false;
 
-        player.transform.parent = null;
         yield return new WaitForSeconds(1);
 
         respawn();
@@ -130,6 +129,8 @@ public class PlayerController : MonoBehaviour
         animator.ResetTrigger("CatDead");
 
         player.transform.position = currentSpawn.transform.position;
+
+        player.transform.parent = null;
         onCircle.Clear();
         onCircle.Push(null);
     }
