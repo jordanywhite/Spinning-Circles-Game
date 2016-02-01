@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public const int LEFT = 0;
+    public const int RIGHT = 1;
+    public const int UP = 2;
+    public const int DOWN = 3;
+
+    private bool[] facingDirs;
+
     Stack<GameObject> onCircle;
 
 	float moveSpeed;
@@ -51,6 +58,9 @@ public class PlayerController : MonoBehaviour
 
         moveSpeed = 3F;
 
+        // Start facing right
+        facingDirs = new bool[] { false, true, false, false };
+
         GameObject spawnOne = GameObject.Find("Spawn1");
 
         currentSpawn = spawnOne;
@@ -80,37 +90,64 @@ public class PlayerController : MonoBehaviour
         // Lock rotation
         player.transform.rotation = rotation;
 
-        if(!canMove)
+        moveUpdate();
+
+    }
+
+    private void moveUpdate()
+    {
+        bool isMoving = false;
+
+        if (canMove)
         {
-            return;
-        }
+            if ((Input.GetKey(KeyCode.RightArrow)) || (Input.GetKey(KeyCode.D)))
+            {
+                transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f, 0.0f);
+                isMoving = true;
+                facingDirs[RIGHT] = true;
+                facingDirs[LEFT] = false;
+            }
 
-        if ((Input.GetKey(KeyCode.RightArrow))||(Input.GetKey(KeyCode.D)))
-		{
-			transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f,0.0f);
-            isMoving = true;
-            
-		}
-		if((Input.GetKey(KeyCode.LeftArrow))||(Input.GetKey(KeyCode.A)))
-		{
-			
-			transform.position -= new Vector3(moveSpeed * Time.deltaTime, 0.0f, 0.0f);
-            isMoving = true;
-        }
-	    if((Input.GetKey(KeyCode.UpArrow))||(Input.GetKey(KeyCode.W)))
-		{
-			
-			transform.position += new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
-            isMoving = true;
-        }
-		if((Input.GetKey(KeyCode.DownArrow))||(Input.GetKey(KeyCode.S)))
-		{
-			
-			transform.position -= new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
-            isMoving = true;
-        }
+            if ((Input.GetKey(KeyCode.LeftArrow)) || (Input.GetKey(KeyCode.A)))
+            {
 
-        setMoving(isMoving);
+                transform.position -= new Vector3(moveSpeed * Time.deltaTime, 0.0f, 0.0f);
+                isMoving = true;
+                facingDirs[LEFT] = true;
+                facingDirs[RIGHT] = false;
+            }
+            if ((Input.GetKey(KeyCode.UpArrow)) || (Input.GetKey(KeyCode.W)))
+            {
+
+                transform.position += new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
+                isMoving = true;
+                facingDirs[UP] = true;
+                facingDirs[DOWN] = false;
+            }
+            if ((Input.GetKey(KeyCode.DownArrow)) || (Input.GetKey(KeyCode.S)))
+            {
+
+                transform.position -= new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
+                isMoving = true;
+                facingDirs[DOWN] = true;
+                facingDirs[UP] = false;
+            }
+
+            faceDirection();
+            setMoving(isMoving);
+        }
+    }
+
+    private void faceDirection()
+    {
+        if (facingDirs[LEFT])
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (facingDirs[RIGHT])
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
    
