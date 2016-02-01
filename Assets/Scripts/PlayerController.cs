@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,8 +16,12 @@ public class PlayerController : MonoBehaviour
 	GameObject circleFive;
     GameObject centerCircle;
 	GameObject Fire;
+	public Text timerLabel;
+	private float time;
 	Animator animator;
     Quaternion rotation;
+
+
 
     GameObject[] spawnPoints;
 
@@ -32,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
 
 
+
     void Start()
 	{
 		player = GameObject.Find("Player");
@@ -40,6 +46,8 @@ public class PlayerController : MonoBehaviour
         circleThree = GameObject.Find("Circle3");
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
+
+
 
         moveSpeed = 3F;
 
@@ -58,7 +66,16 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-        bool isMoving = false;
+        
+		time += Time.deltaTime;
+
+		var minutes = time / 60; //Divide the guiTime by sixty to get the minutes.
+		var seconds = time % 60;//Use the euclidean division for the seconds.
+		var fraction = (time * 100) % 100;
+
+		//update the label value
+		timerLabel.text = string.Format ("Time: {0:00} : {1:00} : {2:000}", minutes, seconds, fraction);
+		bool isMoving = false;
 
         // Lock rotation
         player.transform.rotation = rotation;
@@ -96,7 +113,14 @@ public class PlayerController : MonoBehaviour
         setMoving(isMoving);
     }
 
-    private void setMoving(bool isMoving)
+   
+	void resetTimer(){
+		time = 0;
+	}
+
+
+
+	private void setMoving(bool isMoving)
     {
         if(isMoving)
         {
@@ -124,7 +148,8 @@ public class PlayerController : MonoBehaviour
 
     private void respawn()
     {
-        canMove = true;
+		resetTimer ();
+		canMove = true;
         animator.ResetTrigger("CatWalk");
         animator.ResetTrigger("CatDead");
 
@@ -151,6 +176,7 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = 1F;
         }
+
 
        
 
