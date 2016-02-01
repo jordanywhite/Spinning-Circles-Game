@@ -20,6 +20,7 @@ TagManager:
   - Web
   - Timer
   - WinText
+  - Wall
   layers:
   - Default
   - TransparentFX

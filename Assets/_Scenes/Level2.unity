@@ -230,7 +230,7 @@ Transform:
   - {fileID: 1521013614}
   - {fileID: 1478402000}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &282011838 stripped
 Transform:
   m_PrefabParentObject: {fileID: 453412, guid: 9219a5ef0f469453eac9a53e5c7361fb, type: 2}
@@ -405,11 +405,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322644264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2675, y: -0.295, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: -13.07, y: -1.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 282011838}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &351390249
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ RectTransform:
   - {fileID: 1944278236}
   - {fileID: 1104677504}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -638,7 +638,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453412, guid: 9219a5ef0f469453eac9a53e5c7361fb, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5853950, guid: 9219a5ef0f469453eac9a53e5c7361fb, type: 2}
       propertyPath: m_UsedByEffector
@@ -690,7 +690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!4 &578486583 stripped
 Transform:
   m_PrefabParentObject: {fileID: 401242, guid: 5680ae6ec9c18c642a6449c57fc7ad78, type: 2}
@@ -1549,7 +1549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!4 &1521013614 stripped
 Transform:
   m_PrefabParentObject: {fileID: 462696, guid: a49933c237bd74784b9a20ef180b2e75, type: 2}
@@ -2016,7 +2016,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &2143943341
 Prefab:
   m_ObjectHideFlags: 0
