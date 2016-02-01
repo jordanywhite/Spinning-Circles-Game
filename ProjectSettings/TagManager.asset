@@ -18,6 +18,8 @@ TagManager:
   - Fire
   - Spawn
   - Web
+  - Timer
+  - WinText
   layers:
   - Default
   - TransparentFX

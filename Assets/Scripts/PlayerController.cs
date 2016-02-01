@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,12 +24,10 @@ public class PlayerController : MonoBehaviour
 	GameObject circleFive;
     GameObject centerCircle;
 	GameObject Fire;
-	public Text timerLabel;
-	private float time;
 	Animator animator;
     Quaternion rotation;
 
-
+    public float restartLevelDelay;
 
     GameObject[] spawnPoints;
 
@@ -41,6 +40,7 @@ public class PlayerController : MonoBehaviour
     string webTag = "Web";
     string pitfallTag = "Pitfall";
     string spikesTag = "Spikes";
+    string fruitTag = "Fruit";
 
 
 
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
 
-
+        restartLevelDelay = 1f;
 
         moveSpeed = 3F;
 
@@ -76,18 +76,7 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-        
-		time += Time.deltaTime;
-
-		var minutes = time / 60; //Divide the guiTime by sixty to get the minutes.
-		var seconds = time % 60;//Use the euclidean division for the seconds.
-		var fraction = (time * 100) % 100;
-
-		//update the label value
-		timerLabel.text = string.Format ("Time: {0:00} : {1:00} : {2:000}", minutes, seconds, fraction);
-		bool isMoving = false;
-
-        // Lock rotation
+		// Lock rotation
         player.transform.rotation = rotation;
 
         moveUpdate();
@@ -150,10 +139,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-   
-	void resetTimer(){
-		time = 0;
-	}
 
 
 
@@ -183,14 +168,24 @@ public class PlayerController : MonoBehaviour
         respawn();
     }
 
+    private void levelCompleted()
+    {
+        GameManager.instance.victoryText.enabled = true;
+        GameManager.instance.victoryText.text += GameManager.instance.timerLabel.text;
+        GameManager.instance.stopTimer();
+    }
+
     private void respawn()
     {
-		resetTimer ();
+		GameManager.instance.resetTimer ();
 		canMove = true;
         animator.ResetTrigger("CatWalk");
         animator.ResetTrigger("CatDead");
 
         player.transform.position = currentSpawn.transform.position;
+
+        GameManager.instance.resetTimer();
+        GameManager.instance.startTimer();
 
         player.transform.parent = null;
         onCircle.Clear();
@@ -213,10 +208,10 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = 1F;
         }
-
-
-       
-
+        else if (other.tag == fruitTag)
+        {
+            levelCompleted();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -243,6 +238,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    private void Restart()
+    {
+        SceneManager.LoadScene("Level " + GameManager.instance.getLevelNumber());
+    }
 
 }
