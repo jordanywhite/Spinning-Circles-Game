@@ -64,9 +64,9 @@ public class PlayerController : MonoBehaviour
         circleThree = GameObject.Find("Circle3");
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
-		keyOne = GameObject.Find ("key 1");
-		keyTwo = GameObject.Find ("key 2");
-		keyThree = GameObject.Find ("key 3");
+		keyOne = GameObject.Find ("apple1");
+		keyTwo = GameObject.Find ("apple2");
+		keyThree = GameObject.Find ("apple3");
 		door = GameObject.Find ("door");
 
         restartLevelDelay = 1f;
@@ -236,6 +236,27 @@ public class PlayerController : MonoBehaviour
         {
             levelCompleted();
         }
+		else if (other.tag == key1Tag)
+		{
+			key1 = true;
+			keyOne.SetActive (false);
+		}
+		else if (other.tag == key2Tag)
+		{
+			key2 = true;
+			keyTwo.SetActive (false);
+		}
+		else if (other.tag == key3Tag)
+		{
+			key3 = true;
+			keyThree.SetActive (false);
+		}
+		else if (other.tag == doorTag)
+		{
+			if (key1 == true && key2 == true && key3 == true) {
+				door.SetActive (false);
+			}
+		}
     }
 
     // Player leaves a trigger
@@ -269,24 +290,7 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = 3F;
         }
-		else if (other.tag == key1Tag)
-		{
-			key1 = true;
-		}
-		else if (other.tag == key2Tag)
-		{
-			key2 = true;
-		}
-		else if (other.tag == key3Tag)
-		{
-			key3 = true;
-		}
-		else if (other.tag == doorTag)
-		{
-			if (key1 == true && key2 == true && key3 == true) {
-				door.SetActive (false);
-			}
-		}
+
     }
 
 

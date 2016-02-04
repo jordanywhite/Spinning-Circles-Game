@@ -21,6 +21,10 @@ TagManager:
   - Timer
   - WinText
   - Wall
+  - key 1
+  - key 2
+  - key 3
+  - door
   layers:
   - Default
   - TransparentFX
