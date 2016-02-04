@@ -192,45 +192,64 @@ public class PlayerController : MonoBehaviour
         onCircle.Push(null);
     }
 
+
+    // Player enters a trigger
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag || other.tag == circleFour.tag || other.tag == circleFive.tag)
+        // Attach player to a circle when entering a circle
+		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag || 
+            other.tag == circleFour.tag || other.tag == circleFive.tag)
         {
-			print ("in: " + other.tag);
 			onCircle.Push (other.gameObject);
 			player.transform.parent = other.gameObject.transform;
 		}
+
+        // Fatal obstacle encountered
         else if (other.tag == fireTag || other.tag == spikesTag)
         {
             StartCoroutine((catDied()));
 		} 
+
+        // Slowed down from web
         else if (other.tag == webTag)
         {
             moveSpeed = 1F;
         }
+
+        // Fruit collection successful
         else if (other.tag == fruitTag)
         {
             levelCompleted();
         }
     }
 
+    // Player leaves a trigger
     private void OnTriggerExit2D(Collider2D other)
     {
-		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag|| other.tag == circleFour.tag|| other.tag == circleFive.tag)
+        // Left a Circle to enter an outer circle or no circle
+		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag|| 
+            other.tag == circleFour.tag|| other.tag == circleFive.tag)
         {
-            print("out: " + other.tag);
+            // Forget the last circle the player was on
             GameObject circle = onCircle.Pop();
 
+            // Check if the player is entering a previously entered circle
             if (onCircle.Peek() != null)
             {
+
+                // Attach to the circle the player entered previous to circle the player just left
                 player.transform.parent = onCircle.Peek().transform;
             }
+
+            // The player is no longer on a circle
             else
             {
+                // Destroy the parent
                 player.transform.parent = null;
             }
         }
 
+        // Restore player movement speed
         else if (other.tag == webTag)
         {
             moveSpeed = 3F;
