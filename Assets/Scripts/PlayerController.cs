@@ -23,9 +23,16 @@ public class PlayerController : MonoBehaviour
 	GameObject circleFour;
 	GameObject circleFive;
     GameObject centerCircle;
+	GameObject keyOne;
+	GameObject keyTwo;
+	GameObject keyThree;
+	GameObject door;
 	GameObject Fire;
 	Animator animator;
     Quaternion rotation;
+	bool key1 = false;
+	bool key2 = false;
+	bool key3 = false;
 
     public float restartLevelDelay;
 
@@ -41,6 +48,10 @@ public class PlayerController : MonoBehaviour
     string pitfallTag = "Pitfall";
     string spikesTag = "Spikes";
     string fruitTag = "Fruit";
+	string key1Tag = "key 1";
+	string key2Tag = "key 2";
+	string key3Tag = "key 3";
+	string doorTag = "door";
 
 
 
@@ -53,6 +64,10 @@ public class PlayerController : MonoBehaviour
         circleThree = GameObject.Find("Circle3");
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
+		keyOne = GameObject.Find ("key 1");
+		keyTwo = GameObject.Find ("key 2");
+		keyThree = GameObject.Find ("key 3");
+		door = GameObject.Find ("door");
 
         restartLevelDelay = 1f;
 
@@ -254,6 +269,24 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = 3F;
         }
+		else if (other.tag == key1Tag)
+		{
+			key1 = true;
+		}
+		else if (other.tag == key2Tag)
+		{
+			key2 = true;
+		}
+		else if (other.tag == key3Tag)
+		{
+			key3 = true;
+		}
+		else if (other.tag == doorTag)
+		{
+			if (key1 == true && key2 == true && key3 == true) {
+				door.SetActive (false);
+			}
+		}
     }
 
 
