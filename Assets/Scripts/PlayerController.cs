@@ -53,8 +53,8 @@ public class PlayerController : MonoBehaviour
 	string key3Tag = "key 3";
 	string doorTag = "door";
 
-
-
+    public Toggle nuxMode;
+    private bool isNuxMode = false;
 
     void Start()
 	{
@@ -91,11 +91,15 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
+        if (nuxMode.isOn != isNuxMode)
+        {
+            isNuxMode = nuxMode.isOn;
+        }
+
 		// Lock rotation
         player.transform.rotation = rotation;
 
         moveUpdate();
-
     }
 
     private void moveUpdate()
@@ -222,13 +226,13 @@ public class PlayerController : MonoBehaviour
         // Fatal obstacle encountered
         else if (other.tag == fireTag || other.tag == spikesTag)
         {
-            StartCoroutine((catDied()));
+            if(!isNuxMode) StartCoroutine((catDied()));
 		} 
 
         // Slowed down from web
         else if (other.tag == webTag)
         {
-            moveSpeed = 1F;
+            if(!isNuxMode) moveSpeed = 1F;
         }
 
         // Fruit collection successful

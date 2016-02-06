@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     private int level = 1;                                  //Current level number, expressed in game as "Day 1".
     private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
 
-
     public Text timerLabel;
     public Text victoryText;
     private float time;
@@ -28,15 +27,17 @@ public class GameManager : MonoBehaviour
     {
         //Check if instance already exists
         if (instance == null)
-
+        {
             //if not, set instance to this
             instance = this;
+        }
 
         //If instance already exists and it's not this:
         else if (instance != this)
-
+        {
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
+        }
 
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);

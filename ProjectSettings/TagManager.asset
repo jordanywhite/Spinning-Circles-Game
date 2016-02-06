@@ -25,6 +25,7 @@ TagManager:
   - key 2
   - key 3
   - door
+  - Nux Mode
   layers:
   - Default
   - TransparentFX
