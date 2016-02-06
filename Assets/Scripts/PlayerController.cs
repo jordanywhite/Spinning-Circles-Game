@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
 	string key3Tag = "key 3";
 	string doorTag = "door";
 
-    public Toggle nuxMode;
     private bool isNuxMode = false;
 
     void Start()
@@ -91,10 +90,17 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-        if (nuxMode.isOn != isNuxMode)
+		if (Input.GetKey(KeyCode.N))
         {
-            isNuxMode = nuxMode.isOn;
-        }
+			if(isNuxMode == false)
+				{
+					isNuxMode = true;
+       			}
+			else
+				{
+					isNuxMode = false;
+				}
+		}
 
 		// Lock rotation
         player.transform.rotation = rotation;
