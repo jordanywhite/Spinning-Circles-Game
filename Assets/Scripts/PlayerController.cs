@@ -38,9 +38,10 @@ public class PlayerController : MonoBehaviour
 
     GameObject[] spawnPoints;
 
-    GameObject currentSpawn;
+    private GameObject currentSpawn;
 
-    bool canMove = true;
+    private bool canMove = true;
+    private bool level_finished = false;
 
     //tags
     string fireTag = "Fire";
@@ -53,9 +54,7 @@ public class PlayerController : MonoBehaviour
 	string key3Tag = "key 3";
 	string doorTag = "door";
 
-
-
-
+    
     void Start()
 	{
 		player = GameObject.Find("Player");
@@ -154,9 +153,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
-
 	private void setMoving(bool isMoving)
     {
         if(isMoving)
@@ -178,21 +174,23 @@ public class PlayerController : MonoBehaviour
         animator.ResetTrigger("CatWalk");
         canMove = false;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         respawn();
     }
 
     private void levelCompleted()
     {
+        level_finished = true;
         GameManager.instance.victoryText.enabled = true;
         GameManager.instance.victoryText.text += GameManager.instance.timerLabel.text;
+
         GameManager.instance.stopTimer();
     }
 
     private void respawn()
     {
-		GameManager.instance.resetTimer ();
+		GameManager.instance.resetTimer();
 		canMove = true;
         animator.ResetTrigger("CatWalk");
         animator.ResetTrigger("CatDead");
@@ -232,9 +230,10 @@ public class PlayerController : MonoBehaviour
         }
 
         // Fruit collection successful
-        else if (other.tag == fruitTag)
+        else if (other.tag == fruitTag && !level_finished)
         {
             levelCompleted();
+            Destroy(other.gameObject);
         }
 		else if (other.tag == key1Tag)
 		{

@@ -1812,7 +1812,7 @@ Prefab:
         type: 3}
     - target: {fileID: 109558, guid: 008ffec09f74b234187c873b2133c511, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: door
       objectReference: {fileID: 0}
     - target: {fileID: 6174706, guid: 008ffec09f74b234187c873b2133c511, type: 2}
       propertyPath: m_IsTrigger
@@ -1938,7 +1938,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 428056, guid: ed6a242a975e84c90a9f39be3bc5a6ed, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.4
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 428056, guid: ed6a242a975e84c90a9f39be3bc5a6ed, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2097,11 +2097,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 428056, guid: ed6a242a975e84c90a9f39be3bc5a6ed, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.7142859
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 428056, guid: ed6a242a975e84c90a9f39be3bc5a6ed, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.1885715
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 428056, guid: ed6a242a975e84c90a9f39be3bc5a6ed, type: 2}
       propertyPath: m_LocalPosition.z
