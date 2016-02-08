@@ -227,18 +227,6 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-
-        else if(GameManager.instance.isNux())
-        {
-            GameObject.Destroy(other.gameObject);
-            return;
-        }
-
-        // Slowed down from web
-        else if (other.tag == webTag)
-        {
-            moveSpeed /= 3;
-        }
         
 		else if (other.tag == key1Tag)
 		{
@@ -284,10 +272,26 @@ public class PlayerController : MonoBehaviour
 
 
 
+
+        else if (GameManager.instance.isNux())
+        {
+            GameObject.Destroy(other.gameObject);
+            return;
+        }
+
+
+
         // Fatal obstacle encountered
         else if (other.tag == fireTag || other.tag == spikesTag)
         {
             StartCoroutine((catDied()));
+        }
+
+
+        // Slowed down from web
+        else if (other.tag == webTag)
+        {
+            moveSpeed /= 3;
         }
     }
 
