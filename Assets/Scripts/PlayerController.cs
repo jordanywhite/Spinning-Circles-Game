@@ -26,13 +26,9 @@ public class PlayerController : MonoBehaviour
 	GameObject keyOne;
 	GameObject keyTwo;
 	GameObject keyThree;
-	GameObject door;
 	GameObject Fire;
 	Animator animator;
     Quaternion rotation;
-	bool key1 = false;
-	bool key2 = false;
-	bool key3 = false;
 
     public float restartLevelDelay;
 
@@ -43,16 +39,20 @@ public class PlayerController : MonoBehaviour
     private bool canMove = true;
     private bool level_finished = false;
 
+    private int[] keyCount = new int[] { 0, 0, 0 };
+
     //tags
     string fireTag = "Fire";
     string webTag = "Web";
     string pitfallTag = "Pitfall";
     string spikesTag = "Spikes";
     string fruitTag = "Fruit";
-	string key1Tag = "key 1";
-	string key2Tag = "key 2";
-	string key3Tag = "key 3";
-	string doorTag = "door";
+	string door1Tag = "door 1";
+    string door2Tag = "door 2";
+    string door3Tag = "door 3";
+    string key1Tag = "key 1";
+    string key2Tag = "key 2";
+    string key3Tag = "key 3";
 
     
     void Start()
@@ -63,10 +63,6 @@ public class PlayerController : MonoBehaviour
         circleThree = GameObject.Find("Circle3");
 		circleFour = GameObject.Find("Circle4");
 		circleFive = GameObject.Find("Circle5");
-		keyOne = GameObject.Find ("apple1");
-		keyTwo = GameObject.Find ("apple2");
-		keyThree = GameObject.Find ("apple3");
-		door = GameObject.Find ("door");
 
         restartLevelDelay = 1f;
 
@@ -237,25 +233,44 @@ public class PlayerController : MonoBehaviour
         }
 		else if (other.tag == key1Tag)
 		{
-			key1 = true;
-			keyOne.SetActive (false);
+            print("keys!");
+            other.gameObject.SetActive(false);
+            keyCount[0] += 1;
 		}
-		else if (other.tag == key2Tag)
+        else if (other.tag == key2Tag)
+        {
+            other.gameObject.SetActive(false);
+            keyCount[1] += 1;
+        }
+        else if (other.tag == key3Tag)
+        {
+            other.gameObject.SetActive(false);
+            keyCount[2] += 1;
+        }
+        else if (other.tag == door1Tag)
 		{
-			key2 = true;
-			keyTwo.SetActive (false);
-		}
-		else if (other.tag == key3Tag)
-		{
-			key3 = true;
-			keyThree.SetActive (false);
-		}
-		else if (other.tag == doorTag)
-		{
-			if (key1 == true && key2 == true && key3 == true) {
-				door.SetActive (false);
+			if (keyCount[0] > 0) {
+                keyCount[0] -= 1;
+				other.gameObject.transform.parent.gameObject.SetActive (false);
 			}
 		}
+        else if (other.tag == door2Tag)
+        {
+            if (keyCount[1] > 0)
+            {
+                keyCount[0] -= 1;
+                other.gameObject.transform.parent.gameObject.SetActive(false);
+            }
+        }
+        else if (other.tag == door3Tag)
+        {
+            if (keyCount[2] > 0)
+            {
+                keyCount[0] -= 1;
+                other.gameObject.SetActive(false);
+                other.gameObject.transform.parent.gameObject.SetActive(false);
+            }
+        }
     }
 
     // Player leaves a trigger

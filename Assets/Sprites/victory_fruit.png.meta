@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 904acfcfd03668147b95be2ca508ab80
-timeCreated: 1454894448
+timeCreated: 1454895143
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -72626,6 +72626,25 @@ TextureImporter:
         - {x: 20.5, y: -11.5}
         - {x: 20.5, y: 22.5}
         - {x: 10.5, y: 24.5}
+    - name: victory_fruit_34
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 100
+        width: 36
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 21.5}
+        - {x: -18, y: 17.5}
+        - {x: -18, y: -12.5}
+        - {x: -17, y: -21.5}
+        - {x: 8, y: -21.5}
+        - {x: 18, y: -5.5}
+        - {x: 18, y: 19.5}
+        - {x: 10, y: 21.5}
     outline: []
   spritePackingTag: 
   userData: 
