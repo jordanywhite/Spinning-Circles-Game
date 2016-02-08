@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     private Scene[] scenes = new Scene[LEVEL_COUNT];
 
+    private string[] level_texts = new string[LEVEL_COUNT];
+    private Dictionary<int, string> level_to_level_texts = new Dictionary<int, string>();
+
     //Awake is always called before any Start functions
     private void Awake()
     {
@@ -46,7 +49,18 @@ public class GameManager : MonoBehaviour
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
-        for(int i = 0; i < LEVEL_COUNT; i++)
+        level_texts[0] = "Pick up the fruit as fast as you can! \nAvoid walls and obstacles!";
+        level_texts[1] = "Watch out! \nSome obstacles are fatal, while other can have other interesting effects.";
+        level_texts[2] = "Some keys open some doors but not others.";
+        level_texts[3] = "";
+        level_texts[4] = "";
+        level_texts[5] = "";
+        level_texts[6] = "";
+        level_texts[7] = "";
+        level_texts[8] = "";
+        level_texts[9] = "Don't fight the spin. \nSpin to win!";
+
+        for (int i = 0; i < LEVEL_COUNT; i++)
         {
             scenes[i] = SceneManager.GetSceneByName("level" + (i + 1));
         }
