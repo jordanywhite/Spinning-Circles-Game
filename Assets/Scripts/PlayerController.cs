@@ -170,18 +170,9 @@ public class PlayerController : MonoBehaviour
         animator.ResetTrigger("CatWalk");
         canMove = false;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds((float)1.5);
 
         respawn();
-    }
-
-    private void levelCompleted()
-    {
-        level_finished = true;
-        GameManager.instance.victoryText.enabled = true;
-        GameManager.instance.victoryText.text += GameManager.instance.timerLabel.text;
-
-        GameManager.instance.stopTimer();
     }
 
     private void respawn()
@@ -216,6 +207,7 @@ public class PlayerController : MonoBehaviour
         // Fatal obstacle encountered
         else if (other.tag == fireTag || other.tag == spikesTag)
         {
+            print("die");
             StartCoroutine((catDied()));
 		} 
 
@@ -228,12 +220,12 @@ public class PlayerController : MonoBehaviour
         // Fruit collection successful
         else if (other.tag == fruitTag && !level_finished)
         {
-            levelCompleted();
+            level_finished = true;
+            StartCoroutine(GameManager.instance.levelCompleted());
             Destroy(other.gameObject);
         }
 		else if (other.tag == key1Tag)
 		{
-            print("keys!");
             other.gameObject.SetActive(false);
             keyCount[0] += 1;
 		}
@@ -251,14 +243,16 @@ public class PlayerController : MonoBehaviour
 		{
 			if (keyCount[0] > 0) {
                 keyCount[0] -= 1;
-				other.gameObject.transform.parent.gameObject.SetActive (false);
+                other.gameObject.SetActive(false);
+                other.gameObject.transform.parent.gameObject.SetActive (false);
 			}
 		}
         else if (other.tag == door2Tag)
         {
             if (keyCount[1] > 0)
             {
-                keyCount[0] -= 1;
+                keyCount[1] -= 1;
+                other.gameObject.SetActive(false);
                 other.gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
@@ -266,7 +260,7 @@ public class PlayerController : MonoBehaviour
         {
             if (keyCount[2] > 0)
             {
-                keyCount[0] -= 1;
+                keyCount[2] -= 1;
                 other.gameObject.SetActive(false);
                 other.gameObject.transform.parent.gameObject.SetActive(false);
             }
@@ -284,7 +278,7 @@ public class PlayerController : MonoBehaviour
             GameObject circle = onCircle.Pop();
 
             // Check if the player is entering a previously entered circle
-            if (onCircle.Peek() != null)
+            if (onCircle.Count > 0 && onCircle.Peek() != null)
             {
 
                 // Attach to the circle the player entered previous to circle the player just left
@@ -305,12 +299,6 @@ public class PlayerController : MonoBehaviour
             moveSpeed = 3F;
         }
 
-    }
-
-
-    private void Restart()
-    {
-        SceneManager.LoadScene("Level " + GameManager.instance.getLevelNumber());
     }
 
 }

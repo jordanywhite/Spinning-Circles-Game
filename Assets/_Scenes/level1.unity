@@ -858,8 +858,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStartDelay: 2
   turnDelay: 0.1
-  timerLabel: {fileID: 1944278237}
-  victoryText: {fileID: 1104677505}
 --- !u!4 &515724186
 Transform:
   m_ObjectHideFlags: 0
@@ -1691,12 +1689,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22452130, guid: 8ba81792c142049799224cc0ab77679c,
     type: 2}
   m_PrefabInternal: {fileID: 437374533}
---- !u!114 &1104677505 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11435846, guid: 8ba81792c142049799224cc0ab77679c,
-    type: 2}
-  m_PrefabInternal: {fileID: 437374533}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1152256607
 Prefab:
   m_ObjectHideFlags: 0

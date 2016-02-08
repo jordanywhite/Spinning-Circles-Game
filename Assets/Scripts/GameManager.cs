@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public const int LEVEL_COUNT = 3;
+
     public float levelStartDelay = 2f;                      //Time to wait before starting level, in seconds.
     public float turnDelay = 0.1f;                          //Delay between each Player turn.
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
@@ -13,13 +16,17 @@ public class GameManager : MonoBehaviour
     private Text levelText;                                 //Text to display current level number.
     private GameObject levelImage;                          //Image to block out level as levels are being set up, background for levelText.]
     private int level = 1;                                  //Current level number, expressed in game as "Day 1".
-    private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
 
 
-    public Text timerLabel;
-    public Text victoryText;
+    private Text timerLabel;
+    private Text victoryText;
     private float time;
     private bool isTiming;
+
+    private bool show_menu = false;
+    private bool show_timer = false;
+
+    private Scene[] scenes = new Scene[LEVEL_COUNT];
 
     //Awake is always called before any Start functions
     private void Awake()
@@ -39,6 +46,11 @@ public class GameManager : MonoBehaviour
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
+        for(int i = 0; i < LEVEL_COUNT; i++)
+        {
+            scenes[i] = SceneManager.GetSceneByName("level" + (i + 1));
+        }
+
         //Call the InitGame function to initialize the first level 
         InitGame();
     }
@@ -46,22 +58,18 @@ public class GameManager : MonoBehaviour
     //This is called each time a scene is loaded.
     private void OnLevelWasLoaded(int index)
     {
-        //Add one to our level number.
-        level++;
-        //Call InitGame to initialize our level.
-        InitGame();
+        timerLabel = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
+        victoryText = GameObject.FindGameObjectWithTag("WinText").GetComponent<Text>();
     }
 
     //Initializes the game for each level.
     private void InitGame()
     {
-        //While doingSetup is true the player can't move, prevent player from moving while title card is up.
-        doingSetup = true;
+        timerLabel = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
+        victoryText = GameObject.FindGameObjectWithTag("WinText").GetComponent<Text>();
 
         victoryText.enabled = false;
         isTiming = true;
-
-        doingSetup = false;
     }
 
 
@@ -70,15 +78,12 @@ public class GameManager : MonoBehaviour
     {
         //Disable the levelImage gameObject.
         levelImage.SetActive(false);
-
-        //Set doingSetup to false allowing player to move again.
-        doingSetup = false;
     }
 
     //Update is called every frame.
     private void Update()
     {
-        if (isTiming)
+        if (isTiming && timerLabel != null)
         {
             time += Time.deltaTime;
             var minutes = time / 60; //Divide the guiTime by sixty to get the minutes.
@@ -110,13 +115,45 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         //Set levelText to display number of levels passed and game over message
-        levelText.text = "Game Over";
+        levelText.text = "Thank You for Playing!";
 
         //Enable black background image gameObject.
         levelImage.SetActive(true);
 
         //Disable this GameManager.
         enabled = false;
+    }
+
+    public IEnumerator levelCompleted()
+    {
+        victoryText.enabled = true;
+        victoryText.text += timerLabel.text;
+
+        stopTimer();
+        resetTimer();
+
+        yield return new WaitForSeconds((float) 5);
+
+        level++;
+        nextLevel();
+    }
+
+    private void nextLevel()
+    {
+
+        if (level <= scenes.Length)
+        {
+            SceneManager.LoadScene("Level" + level);
+        }
+        else
+        {
+            GameOver();
+        }
+
+
+
+        //Call InitGame to initialize our level.
+        InitGame();
     }
 
     public int getLevelNumber()
