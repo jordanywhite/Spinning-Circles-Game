@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         level_texts[4] = "Staying still doesn't mean your safe. Many obstacles move independently of the circle they appear to be on.";
         level_texts[5] = "Pay attention to the obstacles. Some move. Others don't.";
         level_texts[6] = "You need keys to get keys.";
-        level_texts[7] = "";
+        level_texts[7] = "Theres an easy way and a fast way.";
         level_texts[8] = "";
         level_texts[9] = "Don't fight the spin. \nSpin to win!";
 
