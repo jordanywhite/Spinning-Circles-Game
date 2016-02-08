@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     Stack<GameObject> onCircle;
 
 	float moveSpeed;
-	GameObject player;
 	GameObject circleOne;
     GameObject circleTwo;
     GameObject circleThree;
@@ -57,7 +56,6 @@ public class PlayerController : MonoBehaviour
     
     void Start()
 	{
-		player = GameObject.Find("Player");
 		circleOne = GameObject.Find("Circle1");
         circleTwo = GameObject.Find("Circle2");
         circleThree = GameObject.Find("Circle3");
@@ -68,6 +66,12 @@ public class PlayerController : MonoBehaviour
 
         moveSpeed = 3F;
 
+        if(GameManager.instance.isNux())
+        {
+            moveSpeed = 6F;
+            keyCount = new int[] { 999, 999, 999};
+        }
+
         // Start facing right
         facingDirs = new bool[] { false, true, false, false };
 
@@ -77,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         spawnPoints = new GameObject[] {spawnOne};
 
-        rotation = player.transform.rotation;
+        rotation = gameObject.transform.rotation;
 
 		animator = GetComponent<Animator> ();
         onCircle = new Stack<GameObject>();
@@ -87,8 +91,8 @@ public class PlayerController : MonoBehaviour
 	void Update()
 	{
 		// Lock rotation
-        player.transform.rotation = rotation;
-
+        gameObject.transform.rotation = rotation;
+        
         moveUpdate();
 
     }
@@ -96,9 +100,18 @@ public class PlayerController : MonoBehaviour
     private void moveUpdate()
     {
         bool isMoving = false;
+        
 
-        if (canMove)
+        if (canMove && GameManager.instance.canMove)
         {
+            if (Input.GetKey(KeyCode.R))
+            {
+                SceneManager.LoadScene("level" + GameManager.instance.level);
+            }
+            if(Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Intro");
+            }
             if ((Input.GetKey(KeyCode.RightArrow)) || (Input.GetKey(KeyCode.D)))
             {
                 transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f, 0.0f);
@@ -169,6 +182,7 @@ public class PlayerController : MonoBehaviour
         animator.ResetTrigger("CatIdle");
         animator.ResetTrigger("CatWalk");
         canMove = false;
+        GameManager.instance.canMove = false;
 
         yield return new WaitForSeconds((float)1.5);
 
@@ -179,15 +193,16 @@ public class PlayerController : MonoBehaviour
     {
 		GameManager.instance.resetTimer();
 		canMove = true;
+        GameManager.instance.canMove = true;
         animator.ResetTrigger("CatWalk");
         animator.ResetTrigger("CatDead");
 
-        player.transform.position = currentSpawn.transform.position;
+        gameObject.transform.position = currentSpawn.transform.position;
 
         GameManager.instance.resetTimer();
         GameManager.instance.startTimer();
 
-        player.transform.parent = null;
+        gameObject.transform.parent = null;
         onCircle.Clear();
         onCircle.Push(null);
     }
@@ -201,21 +216,8 @@ public class PlayerController : MonoBehaviour
             other.tag == circleFour.tag || other.tag == circleFive.tag)
         {
 			onCircle.Push (other.gameObject);
-			player.transform.parent = other.gameObject.transform;
+			gameObject.transform.parent = other.gameObject.transform;
 		}
-
-        // Fatal obstacle encountered
-        else if (other.tag == fireTag || other.tag == spikesTag)
-        {
-            print("die");
-            StartCoroutine((catDied()));
-		} 
-
-        // Slowed down from web
-        else if (other.tag == webTag)
-        {
-            moveSpeed = 1F;
-        }
 
         // Fruit collection successful
         else if (other.tag == fruitTag && !level_finished)
@@ -224,6 +226,20 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(GameManager.instance.levelCompleted());
             Destroy(other.gameObject);
         }
+
+
+        else if(GameManager.instance.isNux())
+        {
+            GameObject.Destroy(other.gameObject);
+            return;
+        }
+
+        // Slowed down from web
+        else if (other.tag == webTag)
+        {
+            moveSpeed /= 3;
+        }
+        
 		else if (other.tag == key1Tag)
 		{
             other.gameObject.SetActive(false);
@@ -265,6 +281,14 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
+
+
+
+        // Fatal obstacle encountered
+        else if (other.tag == fireTag || other.tag == spikesTag)
+        {
+            StartCoroutine((catDied()));
+        }
     }
 
     // Player leaves a trigger
@@ -274,22 +298,30 @@ public class PlayerController : MonoBehaviour
 		if (other.tag == circleOne.tag || other.tag == circleTwo.tag || other.tag == circleThree.tag|| 
             other.tag == circleFour.tag|| other.tag == circleFive.tag)
         {
-            // Forget the last circle the player was on
-            GameObject circle = onCircle.Pop();
 
             // Check if the player is entering a previously entered circle
             if (onCircle.Count > 0 && onCircle.Peek() != null)
             {
+                // Forget the last circle the player was on
+                GameObject circle = onCircle.Pop();
 
                 // Attach to the circle the player entered previous to circle the player just left
-                player.transform.parent = onCircle.Peek().transform;
+                if (onCircle.Peek() != null)
+                {
+                    gameObject.transform.parent = onCircle.Peek().transform;
+                }
+                else
+                {
+                    // Destroy the parent
+                    gameObject.transform.parent = null;
+                }
             }
 
             // The player is no longer on a circle
             else
             {
                 // Destroy the parent
-                player.transform.parent = null;
+                gameObject.transform.parent = null;
             }
         }
 
@@ -300,5 +332,6 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
 
 }

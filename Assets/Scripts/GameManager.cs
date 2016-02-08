@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public const int LEVEL_COUNT = 3;
+    public const int LEVEL_COUNT = 10;
 
     public float levelStartDelay = 2f;                      //Time to wait before starting level, in seconds.
     public float turnDelay = 0.1f;                          //Delay between each Player turn.
@@ -15,8 +15,9 @@ public class GameManager : MonoBehaviour
 
     private Text levelText;                                 //Text to display current level number.
     private GameObject levelImage;                          //Image to block out level as levels are being set up, background for levelText.]
-    private int level = 1;                                  //Current level number, expressed in game as "Day 1".
+    public int level = 1;                                  //Current level number, expressed in game as "Day 1".
 
+    public bool nux_mode = false;
 
     private Text timerLabel;
     private Text victoryText;
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour
 
     private string[] level_texts = new string[LEVEL_COUNT];
     private Dictionary<int, string> level_to_level_texts = new Dictionary<int, string>();
+
+    private float[] scores = new float[LEVEL_COUNT];
+
+    public bool canMove = false;
 
     //Awake is always called before any Start functions
     private void Awake()
@@ -49,10 +54,10 @@ public class GameManager : MonoBehaviour
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
-        level_texts[0] = "Pick up the fruit as fast as you can! \nAvoid walls and obstacles!";
-        level_texts[1] = "Watch out! \nSome obstacles are fatal, while other can have other interesting effects.";
+        level_texts[0] = "Use wasd or the arrow keys to move. Press escape to return to the main menu or 'R' to restart a level. Aquire the fruit and don't die!";
+        level_texts[1] = "Watch out! \nSome obstacles are fatal, while others are just there to ruin your score. Find the quickest way around them.";
         level_texts[2] = "Some keys open some doors but not others.";
-        level_texts[3] = "";
+        level_texts[3] = "Remeber: Dying doesn't hurt your score. Time does! Don't be afraid to restart if you had a slow start.";
         level_texts[4] = "";
         level_texts[5] = "";
         level_texts[6] = "";
@@ -63,17 +68,33 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < LEVEL_COUNT; i++)
         {
             scenes[i] = SceneManager.GetSceneByName("level" + (i + 1));
+            level_to_level_texts.Add(i + 1, level_texts[i]);
         }
 
-        //Call the InitGame function to initialize the first level 
-        InitGame();
     }
 
     //This is called each time a scene is loaded.
     private void OnLevelWasLoaded(int index)
     {
-        timerLabel = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
-        victoryText = GameObject.FindGameObjectWithTag("WinText").GetComponent<Text>();
+        if (SceneManager.GetActiveScene().name == "Intro")
+        {
+            GameObject.Find("Toggle").GetComponent<Toggle>().isOn = nux_mode;
+        }
+            if (SceneManager.GetActiveScene().name == "ScoreScreen")
+        {
+            for (int i = 0; i < GameManager.LEVEL_COUNT; i++)
+            {
+                GameObject.Find("level" + (i + 1)).GetComponent<Text>().text += convertFloatToTime(scores[i]);
+            }
+        }
+
+        //Call the InitGame function to initialize the first level 
+        if (index > 2)
+        {
+            canMove = false;
+            InitGame();
+        }
+
     }
 
     //Initializes the game for each level.
@@ -81,17 +102,28 @@ public class GameManager : MonoBehaviour
     {
         timerLabel = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
         victoryText = GameObject.FindGameObjectWithTag("WinText").GetComponent<Text>();
+        canMove = false;
+
+
+        StartCoroutine(showLevelImage(4));
 
         victoryText.enabled = false;
-        isTiming = true;
     }
 
-
-    //Hides black image used between levels
-    private void HideLevelImage()
+    private IEnumerator showLevelImage(float time)
     {
-        //Disable the levelImage gameObject.
-        levelImage.SetActive(false);
+
+        isTiming = false;
+        GameObject image = GameObject.FindGameObjectWithTag("LevelImage");
+        Text text = GameObject.FindGameObjectWithTag("LevelText").GetComponent<Text>();
+        
+        text.text = level_to_level_texts[level];
+
+        yield return new WaitForSeconds(time);
+
+        image.SetActive(false);
+        canMove = true;
+        isTiming = true;
     }
 
     //Update is called every frame.
@@ -100,15 +132,21 @@ public class GameManager : MonoBehaviour
         if (isTiming && timerLabel != null)
         {
             time += Time.deltaTime;
-            var minutes = time / 60; //Divide the guiTime by sixty to get the minutes.
-            var seconds = time % 60;//Use the euclidean division for the seconds.
-            var fraction = (time * 100) % 100;
 
             //update the label value
-            timerLabel.text = string.Format("Time: {0:00} : {1:00} : {2:000}", minutes, seconds, fraction);
+            timerLabel.text = "Time: " + convertFloatToTime(time);
         }
 
         return;
+    }
+
+    public string convertFloatToTime(float number)
+    {
+        var minutes = number / 60; //Divide the guiTime by sixty to get the minutes.
+        var seconds = number % 60;//Use the euclidean division for the seconds.
+        var fraction = (number * 100) % 100;
+        
+        return string.Format("{0:00} : {1:00} : {2:000}", minutes, seconds, fraction);
     }
     
     public void resetTimer()
@@ -131,9 +169,6 @@ public class GameManager : MonoBehaviour
         //Set levelText to display number of levels passed and game over message
         levelText.text = "Thank You for Playing!";
 
-        //Enable black background image gameObject.
-        levelImage.SetActive(true);
-
         //Disable this GameManager.
         enabled = false;
     }
@@ -144,12 +179,29 @@ public class GameManager : MonoBehaviour
         victoryText.text += timerLabel.text;
 
         stopTimer();
+        
+        if(checkBetterTime(time, level))
+        {
+            victoryText.text += "\nNew Best Time!";
+        }
+        
         resetTimer();
 
         yield return new WaitForSeconds((float) 5);
 
         level++;
         nextLevel();
+    }
+
+    public bool checkBetterTime(float time, int level)
+    {
+        if(scores[level-1] > time || scores[level - 1] == 0)
+        {
+            scores[level - 1] = time;
+            return true;
+        }
+
+        return false;
     }
 
     private void nextLevel()
@@ -173,5 +225,15 @@ public class GameManager : MonoBehaviour
     public int getLevelNumber()
     {
         return level;
+    }
+
+    public void NuxMode(Toggle toggle)
+    {
+        nux_mode = toggle.isOn;
+    }
+
+    public bool isNux()
+    {
+        return nux_mode;
     }
 }

@@ -27,6 +27,8 @@ TagManager:
   - door 1
   - door 2
   - door 3
+  - LevelImage
+  - LevelText
   layers:
   - Default
   - TransparentFX
