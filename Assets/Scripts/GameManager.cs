@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     public bool canMove = false;
 
+    public bool showLoadScreen = true;
+
     //Awake is always called before any Start functions
     private void Awake()
     {
@@ -62,8 +64,8 @@ public class GameManager : MonoBehaviour
         level_texts[5] = "Pay attention to the obstacles. Some move. Others don't.";
         level_texts[6] = "You need keys to get keys.";
         level_texts[7] = "Theres an easy way and a fast way.";
-        level_texts[8] = "";
-        level_texts[9] = "Don't fight the spin. \nSpin to win!";
+        level_texts[8] = "It helps to visualize the your path while taking into account how you spin.";
+        level_texts[9] = "Don't fight the spin. Just go with it.";
 
         for (int i = 0; i < LEVEL_COUNT; i++)
         {
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
         {
             canMove = false;
             InitGame();
+            showLoadScreen = false;
         }
 
     }
@@ -103,27 +106,39 @@ public class GameManager : MonoBehaviour
         timerLabel = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
         victoryText = GameObject.FindGameObjectWithTag("WinText").GetComponent<Text>();
         canMove = false;
+        
+        stopTimer();
+        resetTimer();
 
+        if (showLoadScreen)
+        {
+            StartCoroutine(showLevelImage(4));
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("LevelImage").SetActive(false);
 
-        StartCoroutine(showLevelImage(4));
+            startTimer();
+        }
 
         victoryText.enabled = false;
+        canMove = true;
     }
 
     private IEnumerator showLevelImage(float time)
     {
-
-        isTiming = false;
         GameObject image = GameObject.FindGameObjectWithTag("LevelImage");
         Text text = GameObject.FindGameObjectWithTag("LevelText").GetComponent<Text>();
-        
+
+
+        image.SetActive(true);
+
         text.text = level_to_level_texts[level];
 
         yield return new WaitForSeconds(time);
-
+        
         image.SetActive(false);
-        canMove = true;
-        isTiming = true;
+        startTimer();
     }
 
     //Update is called every frame.
@@ -189,6 +204,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds((float) 5);
 
+        showLoadScreen = true;
         level++;
         nextLevel();
     }
@@ -213,7 +229,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            GameOver();
+            SceneManager.LoadScene("ScoreScreen");
         }
 
 

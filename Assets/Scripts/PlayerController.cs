@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
             if(Input.GetKey(KeyCode.Escape))
             {
                 SceneManager.LoadScene("Intro");
+                GameManager.instance.showLoadScreen = true;
             }
             if ((Input.GetKey(KeyCode.RightArrow)) || (Input.GetKey(KeyCode.D)))
             {
@@ -191,20 +192,7 @@ public class PlayerController : MonoBehaviour
 
     private void respawn()
     {
-		GameManager.instance.resetTimer();
-		canMove = true;
-        GameManager.instance.canMove = true;
-        animator.ResetTrigger("CatWalk");
-        animator.ResetTrigger("CatDead");
-
-        gameObject.transform.position = currentSpawn.transform.position;
-
-        GameManager.instance.resetTimer();
-        GameManager.instance.startTimer();
-
-        gameObject.transform.parent = null;
-        onCircle.Clear();
-        onCircle.Push(null);
+        SceneManager.LoadScene("level" + GameManager.instance.level);
     }
 
 
