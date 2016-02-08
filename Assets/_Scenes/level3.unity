@@ -355,89 +355,37 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 448076, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+    - target: {fileID: 418516, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalPosition.x
       value: -12.94
       objectReference: {fileID: 0}
-    - target: {fileID: 448076, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+    - target: {fileID: 418516, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalPosition.y
       value: -0.45
       objectReference: {fileID: 0}
-    - target: {fileID: 448076, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+    - target: {fileID: 418516, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 448076, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+    - target: {fileID: 418516, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 448076, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+    - target: {fileID: 418516, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 448076, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+    - target: {fileID: 418516, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 448076, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+    - target: {fileID: 418516, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 448076, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
+    - target: {fileID: 418516, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
       propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169924, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_Size.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169924, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_Offset.y
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169924, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169924, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097932, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097932, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_Mass
-      value: 0.1875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097932, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097932, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097932, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097932, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097932, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11466582, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: timerLabel
-      value: 
-      objectReference: {fileID: 1944278237}
-    - target: {fileID: 174380, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
-      propertyPath: m_Name
-      value: Player
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50e6fb6d065ea49e6b8b94463b8c5c50, type: 2}
@@ -895,7 +843,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStartDelay: 2
   turnDelay: 0.1
-  playersTurn: 1
   timerLabel: {fileID: 1944278237}
   victoryText: {fileID: 1104677505}
 --- !u!4 &515724186
